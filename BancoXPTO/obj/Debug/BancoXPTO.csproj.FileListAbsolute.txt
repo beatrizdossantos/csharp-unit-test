@@ -1,0 +1,6 @@
+C:\Users\jujuk\Documents\GitHub\csharp-unit-test\BancoXPTO\bin\Debug\BancoXPTO.dll
+C:\Users\jujuk\Documents\GitHub\csharp-unit-test\BancoXPTO\bin\Debug\BancoXPTO.pdb
+C:\Users\jujuk\Documents\GitHub\csharp-unit-test\BancoXPTO\obj\Debug\BancoXPTO.csprojAssemblyReference.cache
+C:\Users\jujuk\Documents\GitHub\csharp-unit-test\BancoXPTO\obj\Debug\BancoXPTO.csproj.CoreCompileInputs.cache
+C:\Users\jujuk\Documents\GitHub\csharp-unit-test\BancoXPTO\obj\Debug\BancoXPTO.dll
+C:\Users\jujuk\Documents\GitHub\csharp-unit-test\BancoXPTO\obj\Debug\BancoXPTO.pdb

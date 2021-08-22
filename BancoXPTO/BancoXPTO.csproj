@@ -42,10 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agencia.cs" />
+    <Compile Include="Conta.cs" />
     <Compile Include="ContaCorrente.cs" />
     <Compile Include="Extrato.cs" />
     <Compile Include="IAgenciaRepository.cs" />
     <Compile Include="IContaCorrente.cs" />
+    <Compile Include="IContaRepository.cs" />
+    <Compile Include="IExtratoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
