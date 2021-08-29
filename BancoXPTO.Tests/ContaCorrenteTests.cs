@@ -18,7 +18,7 @@ namespace BancoXPTO.Tests
             );
 
             var agencia = new Agencia() { Id = 100, Nome = "Agência Teste" };
-            var agencia2 = new Agencia() { Id = 100, Nome = "Agência Teste 2" };
+            var agencia2 = new Agencia() { Id = 200, Nome = "Agência Teste 2" };
 
             Mock.Get(cc.AgenciaRepository).Setup(r => r.GetById(100)).Returns(agencia);
             Mock.Get(cc.AgenciaRepository).Setup(r => r.GetById(200)).Returns(agencia2);
@@ -44,7 +44,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Agência inválida!", error);
+            Assert.AreEqual("Agência inválida!", error);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Conta inválida!", error);
+            Assert.AreEqual("Conta inválida!", error);
         }
 
         [TestMethod]
@@ -74,7 +74,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("O valor do depósito deve ser maior que zero!", error);
+            Assert.AreEqual("O valor do depósito deve ser maior que zero!", error);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Agência Inválida", error);
+            Assert.AreEqual("Agência Inválida!", error);
         }
 
         [TestMethod]
@@ -120,9 +120,10 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Conta Inválida", error);
+            Assert.AreEqual("Conta Inválida!", error);
         }
 
+        [TestMethod]
         public void Saque_erro_se_valor_menor_ou_igual_que_zero()
         {
             // Arrange
@@ -134,9 +135,10 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Valor do saque deve ser maior que zero!", error);
+            Assert.AreEqual("Valor do saque deve ser maior que zero!", error);
         }
 
+        [TestMethod]
         public void Saque_erro_se_valor_maior_que_saldo_conta()
         {
             // Arrange
@@ -148,9 +150,10 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Valor do saque ultrapassa o saldo!", error);
+            Assert.AreEqual("Valor do saque ultrapassa o saldo!", error);
         }
 
+        [TestMethod]
         public void Saque_retorna_true_se_realizado_com_sucesso()
         {
             // Arrange
@@ -200,7 +203,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Agência de origem Inválida", error);
+            Assert.AreEqual("Agência de origem Inválida!", error);
         }
 
         [TestMethod]
@@ -215,9 +218,10 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Agência de destino Inválida", error);
+            Assert.AreEqual("Agência de destino Inválida!", error);
         }
 
+        [TestMethod]
         public void Transferencia_erro_se_valor_menor_ou_igual_a_zero()
         {
             // Arrange
@@ -229,9 +233,10 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("O valor da transnferência deve ser maior que zero!", error);
+            Assert.AreEqual("O valor da transferência deve ser maior que zero!", error);
         }
 
+        [TestMethod]
         public void Transferencia_erro_se_valor_maior_que_saldo_origem()
         {
             // Arrange
@@ -243,7 +248,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("O valor da transnferência deve ser menor ou igual ao saldo da conta de origem!", error);
+            Assert.AreEqual("O valor da transferência deve ser menor ou igual ao saldo da conta de origem!", error);
         }
 
         [TestMethod]
@@ -258,7 +263,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Conta de origem Inválida", error);
+            Assert.AreEqual("Conta de origem Inválida!", error);
         }
 
         [TestMethod]
@@ -273,7 +278,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsFalse(result);
-            Assert.Equals("Conta de destino Inválida", error);
+            Assert.AreEqual("Conta de destino Inválida!", error);
         }
 
         [TestMethod]
@@ -302,7 +307,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.AreEqual(0m, result);
-            Assert.Equals("Agência Inválida", error);
+            Assert.AreEqual("Agência Inválida!", error);
         }
 
         [TestMethod]
@@ -317,7 +322,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.AreEqual(0m, result);
-            Assert.Equals("Conta Inválida", error);
+            Assert.AreEqual("Conta Inválida!", error);
         }
 
         [TestMethod]
@@ -382,7 +387,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsNull(result);
-            Assert.Equals("A data de início deve ser menor que a data de fim!", error);
+            Assert.AreEqual("A data de início deve ser menor que a data de fim!", error);
         }
 
         [TestMethod]
@@ -397,7 +402,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsNull(result);
-            Assert.Equals("O período não deve ser superior a 120 dias!", error);
+            Assert.AreEqual("O período não deve ser superior a 120 dias!", error);
         }
 
         [TestMethod]
@@ -412,7 +417,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsNull(result);
-            Assert.Equals("Agência Inválida", error);
+            Assert.AreEqual("Agência Inválida!", error);
         }
 
         [TestMethod]
@@ -427,7 +432,7 @@ namespace BancoXPTO.Tests
 
             // Assert
             Assert.IsNull(result);
-            Assert.Equals("Conta Inválida", error);
+            Assert.AreEqual("Conta Inválida!", error);
         }
     }
 }
