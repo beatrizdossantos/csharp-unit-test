@@ -78,6 +78,21 @@ namespace BancoXPTO.Tests
         }
 
         [TestMethod]
+        public void Deposito_erro_se_ocorrer_exception_na_hora_de_salvar_dados()
+        {
+            // Arrange
+            var cc = GetContaCorrente();
+            Mock.Get(cc.ContaRepository).Setup(r => r.Save(It.IsAny<Conta>())).Throws(new Exception("Ocorreu um erro inesperado."));
+
+            // Act
+            string error;
+            var result = cc.Deposito(100, 555, 20m, out error);
+
+            // Assert
+            Assert.AreEqual("Ocorreu um problema ao realizar o depósito!", error);
+        }
+
+        [TestMethod]
         public void Deposito_retorna_true_se_realizado_com_sucesso()
         {
             // Arrange
@@ -331,7 +346,7 @@ namespace BancoXPTO.Tests
             // Arrange
             var cc = GetContaCorrente();
             var dataInicio = new DateTime(2021, 01, 01);
-            var dataFim = new DateTime(2020, 01, 15);
+            var dataFim = new DateTime(2021, 01, 15);
 
 
             var extrato = Builder<Extrato>.CreateListOfSize(10).All()
@@ -356,7 +371,7 @@ namespace BancoXPTO.Tests
             // Arrange
             var cc = GetContaCorrente();
             var dataInicio = new DateTime(2021, 01, 01);
-            var dataFim = new DateTime(2020, 01, 15);
+            var dataFim = new DateTime(2021, 01, 15);
 
 
             var extrato = Builder<Extrato>.CreateListOfSize(10).All()

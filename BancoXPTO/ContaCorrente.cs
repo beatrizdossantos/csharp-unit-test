@@ -69,9 +69,9 @@ namespace BancoXPTO
                     t.Complete();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                mensagemErro = "Ocorreu um problema ao realizar o depósito. Detalhes: " + ex.Message;
+                mensagemErro = "Ocorreu um problema ao realizar o depósito!";
                 return false;
             }
 
